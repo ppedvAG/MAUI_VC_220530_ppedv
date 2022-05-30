@@ -34,7 +34,7 @@
                Text="Geburtsdatum:"/>
         <DatePicker x:Name="Dpr_Birthdate"
                     Format="dd.MM.yyyy"
-                    MinimumDate="01/01/1900"
+                    MinimumDate="01.01.1900"
                     DateSelected="Dpr_Birthdate_DateSelected"/>
 
         <Label x:Name="Lbl_Gender"

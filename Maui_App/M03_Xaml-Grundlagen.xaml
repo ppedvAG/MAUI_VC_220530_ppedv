@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Maui_App"
-             x:Class="Maui_App.MainPage">
+             x:Class="Maui_App.Grundlagen">
     <ContentPage.Content>
         <StackLayout>
             <Button x:Name="Btn_KlickMich"
@@ -10,13 +10,15 @@
                     Clicked="Btn_KlickMich_Clicked"
                     Margin="10, 20, 30, 40"
                     FontSize="Small"/>
-            <Entry Keyboard="Chat"/>
-            <Picker SelectedIndex="1">
-                <Picker.Items>
-                    <x:String>Auswahl 1</x:String>
-                    <x:String>Auswahl 2</x:String>
-                </Picker.Items>
-            </Picker>
+            <Label>
+                <Label.Text>
+                    Hallo Welt
+                </Label.Text>
+                <Label.TextColor>
+                    <Color>#A2B4C6</Color>
+                </Label.TextColor>
+            </Label>
+            <Label>Hallo Welt</Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

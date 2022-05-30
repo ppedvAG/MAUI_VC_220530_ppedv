@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Maui_App.Controls"
+             Title="Comtrols">
+    <ScrollView>
+        <StackLayout>
+            <Border StrokeThickness="4"
+                    Padding="15,15">
+                <Border.Stroke>
+                    <SolidColorBrush Color="Red"/>
+                </Border.Stroke>
+                <Label  Text="Username:"
+                        HorizontalOptions="Center"
+                        FontSize="Large"/>
+            </Border>
+            <Entry Placeholder="z.B. Max Mustermann"
+                   Keyboard="Text"/>
+            <Button Text="Hallo" Clicked="Button_Clicked" BorderWidth="2" BorderColor="Red"/>
+            <ImageButton Source="add.png" Clicked="ImageButton_Clicked"/>
+            <Entry Keyboard="Email"
+               Placeholder="Enter Mail"
+               IsPassword="False"/>
+            <Editor Placeholder="Multiline"/>
+            <SearchBar Placeholder="Search"
+                       SearchButtonPressed="ImageButton_Clicked"/>
+            <CheckBox IsChecked="True" />
+            <Switch IsToggled="True"/>
+            <Slider Minimum="0"
+                Maximum="100"
+                Value="50"/>
+            <Stepper Minimum="0"
+                 Maximum="100"
+                 Increment="1"/>
+            <ProgressBar Progress="0.5"/>
+            <ActivityIndicator IsRunning="True"/>
+            <DatePicker MinimumDate="1.1.1900"
+                        MaximumDate="12.31.2100"
+                        Date="12.11.2022"
+                        Format="dd.MM.yyyy"/>
+            <TimePicker Time="16:15:26"
+                        Format="HH:mm:ss"/>
+            <Picker Title="Monkeys" SelectedIndex="1">
+                <Picker.Items>
+                    <x:String>Baboon</x:String>
+                    <x:String>Capuchin Monkey</x:String>
+                    <x:String>Blue Monkey</x:String>
+                    <x:String>Squirrel Monkey</x:String>
+                </Picker.Items>
+            </Picker>
+            <ListView/>
+            <CollectionView/>
+            <TableView Intent="Settings">
+                <TableRoot>
+                    <TableSection Title="Ring">
+                        <SwitchCell Text="New Voice Mail" On="False"/>
+                        <EntryCell Placeholder="Text"/>
+                        <ViewCell>
+                            <Picker/>
+                        </ViewCell>
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+            <WebView Source="https://www.google.de" HeightRequest="30"/>
+            <Image Source="https://aka.ms/campus.jpg" Aspect="AspectFit" HeightRequest="160"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

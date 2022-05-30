@@ -6,15 +6,21 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		//MainPage = new AppShell();
-
-		MainPage = new MainPage();
+		MainPage = new Layouts();
 	}
 
     protected override void OnStart()
     {
         base.OnStart();
+    }
 
+    protected override void OnSleep()
+    {
+        base.OnSleep();
+    }
 
+    protected override void OnResume()
+    {
+        base.OnResume();
     }
 }

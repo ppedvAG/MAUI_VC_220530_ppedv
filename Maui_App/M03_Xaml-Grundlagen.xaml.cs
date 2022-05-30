@@ -1,9 +1,9 @@
 ﻿namespace Maui_App;
 
-public partial class MainPage : ContentPage
+public partial class Grundlagen : ContentPage
 {
 	
-	public MainPage()
+	public Grundlagen()
 	{
 		InitializeComponent();
 	}
@@ -12,11 +12,6 @@ public partial class MainPage : ContentPage
     {
         if(await DisplayAlert("FRAGE", "Soll was gemacht werden?", "Ja", "Nein"))
 		    Btn_KlickMich.Text = "Button wurde geklickt";
-    }
-
-    private void Entry_Completed(object sender, EventArgs e)
-    {
-
     }
 }
 

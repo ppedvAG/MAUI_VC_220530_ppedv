@@ -6,7 +6,11 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage = new Layouts();
+        //MainPage = new NavigationPage(new Navi.NavPageBsp());
+
+        //MainPage = new Navi.TabbedPageBsp();
+
+        MainPage = new Navi.FlyoutBsp.FlyoutPage1();
 	}
 
     protected override void OnStart()

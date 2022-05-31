@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:Personendatenbank.Model"
+             xmlns:conv="clr-namespace:Personendatenbank.Converter"
              x:Class="Personendatenbank.Pg_AddPerson"
-             Title="Pg_AddPerson">
+             Title="Pg_AddPerson"
+             BackgroundColor="{StaticResource SecondaryColor}">
 
+    <ContentPage.BindingContext>
+        <model:Person/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <conv:GenderToIndexConverter x:Key="gender2index"/>
+    </ContentPage.Resources>
+    
     <StackLayout Margin="10"
                  Spacing="15">
         <!--<Label x:Name="Lbl_Output"
@@ -18,10 +29,13 @@
                 Clicked="Btn_ChangeColor_Clicked"/>-->
 
         <Label x:Name="Lbl_Header"
-               Text="Gib die Daten der neuen Person ein und bestätige."
+               Text="Gib die Daten der Person ein"
                HorizontalOptions="Center"
+               VerticalOptions="Start"
                FontSize="Body"
-               TextColor="Black"/>
+               TextColor="Black"
+               FontFamily="OpenSansSemibold"
+               HorizontalTextAlignment="Center"/>
 
         <Grid ColumnSpacing="5"
               Padding="10">
@@ -43,28 +57,29 @@
                    Grid.Column="1"
                    Placeholder="z.B. Max Mustermann"
                    Completed="Ent_Name_Completed"
-                   Keyboard="Text"/>
+                   Keyboard="Text"
+                   Text="{Binding Name}"/>
 
             <Label x:Name="Lbl_Birthdate"
                    Grid.Row="1"
-                   Text="Geburtsdatum:"
-                   VerticalOptions="Center"/>
+                   Text="Geburtsdatum:"/>
             <DatePicker x:Name="Dpr_Birthdate"
                         Grid.Row="1"
                         Grid.Column="1"
                         Format="dd.MM.yyyy"
                         MinimumDate="01.01.1900"
-                        DateSelected="Dpr_Birthdate_DateSelected"/>
+                        DateSelected="Dpr_Birthdate_DateSelected"
+                        Date="{Binding Geburtsdatum}"/>
 
             <Label x:Name="Lbl_Gender"
                    Grid.Row="2"
-                   Text="Geschlecht:"
-                   VerticalOptions="Center"/>
+                   Text="Geschlecht:"/>
             <Picker x:Name="Pkr_Gender"
                     Grid.Row="2"
                     Grid.Column="1"
                     Title="Wähle Geschlecht aus"
-                    SelectedIndexChanged="Pkr_Gender_SelectedIndexChanged">
+                    SelectedIndexChanged="Pkr_Gender_SelectedIndexChanged"
+                    SelectedIndex="{Binding Geschlecht, Converter={StaticResource gender2index}, ConverterParameter={x:Type model:Gender}}">
                 <Picker.Items>
                     <x:String>Männlich</x:String>
                     <x:String>Weiblich</x:String>
@@ -74,11 +89,11 @@
 
             <Label x:Name="Lbl_Married"
                    Grid.Row="3"
-                   Text="Verheiratet:"
-                   VerticalOptions="Center"/>
+                   Text="Verheiratet:"/>
             <Switch x:Name="Swi_Married"
                     Grid.Row="3"
-                    Grid.Column="1"/>
+                    Grid.Column="1"
+                    IsToggled="{Binding Verheiratet}"/>
         </Grid>
         
         <Button x:Name="Btn_Ok"

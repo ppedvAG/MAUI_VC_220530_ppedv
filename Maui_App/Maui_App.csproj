@@ -53,6 +53,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="M07_Bindings.xaml.cs">
+	    <DependentUpon>M07_Bindings.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="M04_Controls.xaml.cs">
 	    <DependentUpon>M04_Controls.xaml</DependentUpon>
 	  </Compile>
@@ -62,13 +65,40 @@
 	  <Compile Update="M03_Xaml-Grundlagen.xaml.cs">
 	    <DependentUpon>M03_Xaml-Grundlagen.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="M06_Resources_Styles.xaml.cs">
+	    <DependentUpon>M06_Resources_Styles.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="M07_Bindings.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="M04_Controls.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="M05_Layouts.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Navi\FlyoutBsp\FlyoutBsp.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Navi\FlyoutBsp\FlyoutPage1.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Navi\NavPageBsp.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Navi\TabbedPageBsp.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Resources\Styles\Colors.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Resources\Styles\Styles.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="M06_Resources_Styles.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

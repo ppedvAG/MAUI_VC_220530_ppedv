@@ -9,9 +9,11 @@ public partial class Pg_AddPerson : ContentPage
         Dpr_Birthdate.MaximumDate = DateTime.Now;
     }
 
-    private void Btn_Ok_Clicked(object sender, EventArgs e)
+    private async void Btn_Ok_Clicked(object sender, EventArgs e)
     {
+        Model.Person person = this.BindingContext as Model.Person;
 
+        await DisplayAlert($"{person.Name} speichern?", $"Soll diese Person abgespeichert werden:\n{person.Name} ({person.Geschlecht})\ngeboren am {person.Geburtsdatum.ToShortDateString()}\nVerheiratet: {person.Verheiratet}", "Ja", "Nein");
     }
 
     private void Ent_Name_Completed(object sender, EventArgs e)
@@ -26,7 +28,7 @@ public partial class Pg_AddPerson : ContentPage
 
     private void Pkr_Gender_SelectedIndexChanged(object sender, EventArgs e)
     {
-        Swi_Married.Focus();
+        //Swi_Married.Focus();
     }
 
     //private void Btn_ChangeColor_Clicked(object sender, EventArgs e)

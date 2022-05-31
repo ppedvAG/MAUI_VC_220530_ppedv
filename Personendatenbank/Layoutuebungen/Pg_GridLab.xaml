@@ -15,8 +15,8 @@
     </ContentPage.Resources>
 
     <Grid Padding="40"
-              RowSpacing="10"
-              ColumnSpacing="10">
+          RowSpacing="10"
+          ColumnSpacing="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1.5*"/>
                 <RowDefinition/>

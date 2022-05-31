@@ -83,19 +83,21 @@
                 <FlexLayout HeightRequest="739"
                             Direction="Row"
                             Wrap="Wrap"
-                            AlignItems="End"
-                            JustifyContent="SpaceBetween"
-                            AlignContent="Start">
+                            AlignItems="Start"
+                            JustifyContent="SpaceAround"
+                            AlignContent="SpaceBetween">
 
                     <Label Text="1st Label"
                            BackgroundColor="Red"
                            FlexLayout.Basis="50%"/>
                     <Label Text="2nd Label"
-                           BackgroundColor="Green"/>
+                           BackgroundColor="Green"
+                           FlexLayout.Order="1"/>
                     <Label Text="3rd Label"
                            BackgroundColor="Blue"/>
                     <Label Text="4th Label"
-                           BackgroundColor="Yellow"/>
+                           BackgroundColor="Yellow"
+                           FlexLayout.AlignSelf="Start"/>
                     <Label Text="5th Label"
                            BackgroundColor="Orange"/>
                     <Label Text="6th Label"

@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Personendatenbank.Pg_AddPerson"
              Title="Pg_AddPerson">
-    
+
     <StackLayout Margin="10"
-                 Spacing="5">
+                 Spacing="15">
         <!--<Label x:Name="Lbl_Output"
                Text="Hallo MAUI"
                VerticalOptions="CenterAndExpand"
@@ -23,40 +23,68 @@
                FontSize="Body"
                TextColor="Black"/>
 
-        <Label x:Name="Lbl_Name"
-               Text="Name:"/>
-        <Entry x:Name="Ent_Name"
-               Placeholder="z.B. Max Mustermann"
-               Completed="Ent_Name_Completed"
-               Keyboard="Text"/>
+        <Grid ColumnSpacing="5"
+              Padding="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
-        <Label x:Name="Lbl_Birthdate"
-               Text="Geburtsdatum:"/>
-        <DatePicker x:Name="Dpr_Birthdate"
-                    Format="dd.MM.yyyy"
-                    MinimumDate="01.01.1900"
-                    DateSelected="Dpr_Birthdate_DateSelected"/>
+            <Label x:Name="Lbl_Name"
+                   Text="Name:"
+                   VerticalOptions="Center"/>
+            <Entry x:Name="Ent_Name"
+                   Grid.Column="1"
+                   Placeholder="z.B. Max Mustermann"
+                   Completed="Ent_Name_Completed"
+                   Keyboard="Text"/>
 
-        <Label x:Name="Lbl_Gender"
-               Text="Geschlecht:"/>
-        <Picker x:Name="Pkr_Gender"
-                Title="Wähle Geschlecht aus"
-                SelectedIndexChanged="Pkr_Gender_SelectedIndexChanged">
-            <Picker.Items>
-                <x:String>Männlich</x:String>
-                <x:String>Weiblich</x:String>
-                <x:String>Divers</x:String>
-            </Picker.Items>
-        </Picker>
+            <Label x:Name="Lbl_Birthdate"
+                   Grid.Row="1"
+                   Text="Geburtsdatum:"
+                   VerticalOptions="Center"/>
+            <DatePicker x:Name="Dpr_Birthdate"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Format="dd.MM.yyyy"
+                        MinimumDate="01.01.1900"
+                        DateSelected="Dpr_Birthdate_DateSelected"/>
 
-        <Label x:Name="Lbl_Married"
-               Text="Verheiratet"/>
-        <Switch x:Name="Swi_Married"/>
+            <Label x:Name="Lbl_Gender"
+                   Grid.Row="2"
+                   Text="Geschlecht:"
+                   VerticalOptions="Center"/>
+            <Picker x:Name="Pkr_Gender"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Title="Wähle Geschlecht aus"
+                    SelectedIndexChanged="Pkr_Gender_SelectedIndexChanged">
+                <Picker.Items>
+                    <x:String>Männlich</x:String>
+                    <x:String>Weiblich</x:String>
+                    <x:String>Divers</x:String>
+                </Picker.Items>
+            </Picker>
 
+            <Label x:Name="Lbl_Married"
+                   Grid.Row="3"
+                   Text="Verheiratet:"
+                   VerticalOptions="Center"/>
+            <Switch x:Name="Swi_Married"
+                    Grid.Row="3"
+                    Grid.Column="1"/>
+        </Grid>
+        
         <Button x:Name="Btn_Ok"
                 Text="Hinzufügen/Ändern"
                 Clicked="Btn_Ok_Clicked"/>
-        
+
     </StackLayout>
-    
+
 </ContentPage>

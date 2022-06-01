@@ -2,6 +2,7 @@
 <Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:Maui_App"
+       xmlns:mvvm="clr-namespace:Maui_App.MVVM.View"
              x:Class="Maui_App.Navi.AppShell"
              Title="AppShell">
 
@@ -12,6 +13,14 @@
     <FlyoutItem Title="PLattform">
         <ShellContent Route="plattform"
                       ContentTemplate="{DataTemplate local:Plattformspezifika}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="MVVM">
+        <ShellContent Route="mvvm"
+                      ContentTemplate="{DataTemplate mvvm:BeispielView}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Gestures">
+        <ShellContent Route="gestures"
+                      ContentTemplate="{DataTemplate local:Gestures}"/>
     </FlyoutItem>
     <FlyoutItem Title="Controls">
         <ShellContent Route="control"

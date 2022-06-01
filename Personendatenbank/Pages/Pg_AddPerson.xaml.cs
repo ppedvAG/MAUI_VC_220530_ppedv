@@ -1,4 +1,4 @@
-namespace Personendatenbank;
+namespace Personendatenbank.Pages;
 
 public partial class Pg_AddPerson : ContentPage
 {
@@ -13,7 +13,10 @@ public partial class Pg_AddPerson : ContentPage
     {
         Model.Person person = this.BindingContext as Model.Person;
 
-        await DisplayAlert($"{person.Name} speichern?", $"Soll diese Person abgespeichert werden:\n{person.Name} ({person.Geschlecht})\ngeboren am {person.Geburtsdatum.ToShortDateString()}\nVerheiratet: {person.Verheiratet}", "Ja", "Nein");
+        if(await DisplayAlert($"{person.Name} speichern?", $"Soll diese Person abgespeichert werden:\n{person.Name} ({person.Geschlecht})\ngeboren am {person.Geburtsdatum.ToShortDateString()}\nVerheiratet: {person.Verheiratet}", "Ja", "Nein"))
+        {
+            Services.ToastService.ShowToast($"{person.Name} wurde hinzugefügt", true);
+        }
     }
 
     private void Ent_Name_Completed(object sender, EventArgs e)

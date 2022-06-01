@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:tk="tool"
+             x:Class="Maui_App.Plattformspezifika"
+             Title="Plattformspezifika">
+    <StackLayout>
+        <Label Text="{OnPlatform Default=DEFAULT, Android=ANDROID, WinUI=WINUI}"
+               VerticalOptions="Center" 
+               HorizontalOptions="Center"
+               BackgroundColor="{OnIdiom Default=HotPink, Desktop=Blue, Phone=Green}"/>
+
+        <Label x:Name="Lbl_DeviceInfo"/>
+        
+        <Label x:Name="Lbl_Complilerbefehle"/>
+
+        <Label x:Name="Lbl_Orientation"/>
+
+        <Button Text="Flashlight" Clicked="Button_Clicked"/>
+
+    </StackLayout>
+</ContentPage>

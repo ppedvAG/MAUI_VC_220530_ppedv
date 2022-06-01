@@ -10,7 +10,9 @@ public partial class App : Application
 
         //MainPage = new Navi.TabbedPageBsp();
 
-        MainPage = new Navi.FlyoutBsp.FlyoutPage1();
+        //MainPage = new Navi.FlyoutBsp.FlyoutPage1();
+
+        MainPage = new Navi.AppShell();
 	}
 
     protected override void OnStart()
@@ -21,10 +23,12 @@ public partial class App : Application
     protected override void OnSleep()
     {
         base.OnSleep();
+        Preferences.Set("SleepTime", DateTime.Now);
     }
 
-    protected override void OnResume()
+    protected override async void OnResume()
     {
         base.OnResume();
+        await MainPage.DisplayAlert($"Zeit", $"Das Handy wurde um {(Preferences.Get("SleepTime", DateTime.Now)).ToShortTimeString()} unterbrochen.", "ok");
     }
 }

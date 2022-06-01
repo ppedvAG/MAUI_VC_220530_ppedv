@@ -20,6 +20,12 @@
                 </Label.TextColor>
             </Label>
             <Label>Hallo Welt</Label>
+
+            <Button Text="Route Back" Clicked="Button_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
+
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior />
+    </Shell.BackButtonBehavior>
 </ContentPage>

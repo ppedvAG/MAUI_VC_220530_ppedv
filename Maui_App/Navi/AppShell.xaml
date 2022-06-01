@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:Maui_App"
+             x:Class="Maui_App.Navi.AppShell"
+             Title="AppShell">
+
+    <FlyoutItem Title="Main">
+        <ShellContent Route="main"
+                      ContentTemplate="{DataTemplate local:Grundlagen}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="PLattform">
+        <ShellContent Route="plattform"
+                      ContentTemplate="{DataTemplate local:Plattformspezifika}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Controls">
+        <ShellContent Route="control"
+                      ContentTemplate="{DataTemplate local:Controls}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Layouts">
+        <ShellContent Route="layouts"
+                      ContentTemplate="{DataTemplate local:Layouts}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="RoutingBsp">
+        <!--<Tab>-->
+
+            <ShellContent   Title="Routing" 
+                        Route="route"
+                      ContentTemplate="{DataTemplate local:RoutingBsp}"/>
+        <!--</Tab>
+        <Tab>-->
+
+            <ShellContent Title="Bindings"
+                        Route="bindings"
+                      ContentTemplate="{DataTemplate local:Bindings}"/>
+        <!--</Tab>-->
+    </FlyoutItem>
+
+
+
+
+</Shell>

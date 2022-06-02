@@ -15,6 +15,7 @@ public partial class Pg_AddPerson : ContentPage
 
         if(await DisplayAlert($"{person.Name} speichern?", $"Soll diese Person abgespeichert werden:\n{person.Name} ({person.Geschlecht})\ngeboren am {person.Geburtsdatum.ToShortDateString()}\nVerheiratet: {person.Verheiratet}", "Ja", "Nein"))
         {
+            Model.Person.Personenliste.Add(person);
             Services.ToastService.ShowToast($"{person.Name} wurde hinzugefügt", true);
         }
     }
@@ -27,11 +28,6 @@ public partial class Pg_AddPerson : ContentPage
     private void Dpr_Birthdate_DateSelected(object sender, DateChangedEventArgs e)
     {
         Pkr_Gender.Focus();
-    }
-
-    private void Pkr_Gender_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        //Swi_Married.Focus();
     }
 
     //private void Btn_ChangeColor_Clicked(object sender, EventArgs e)

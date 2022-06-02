@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,5 +20,11 @@ namespace Personendatenbank.Model
 
             Geschlecht = Gender.Weiblich;
         }
+
+
+        public static ObservableCollection<Person> Personenliste { get; set; } = new ObservableCollection<Person>()
+        {
+            new Person(){ Name = "Anna Nass", Geschlecht=Gender.Weiblich, Verheiratet = true, Geburtsdatum=new DateTime(2003, 12, 3) },
+        };
     }
 }

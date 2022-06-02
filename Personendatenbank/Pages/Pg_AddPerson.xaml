@@ -78,7 +78,6 @@
                     Grid.Row="2"
                     Grid.Column="1"
                     Title="Wähle Geschlecht aus"
-                    SelectedIndexChanged="Pkr_Gender_SelectedIndexChanged"
                     SelectedIndex="{Binding Geschlecht, Converter={StaticResource gender2index}, ConverterParameter={x:Type model:Gender}}">
                 <Picker.Items>
                     <x:String>Männlich</x:String>

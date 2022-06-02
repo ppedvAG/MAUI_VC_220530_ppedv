@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Maui_App.Services
+namespace Maui_App.Services //Spezifische Implementierung muss in gleichem Namespace wie gemeinsame Definition sein (vgl. Services/DeviceOrientationService.cs)
 {
     public partial class DeviceOrientationService
     {
         public partial DeviceOrientation GetOrientation()
         {
-            //Android-spezifischer Code
+            //Implementierung des Android-spezifischen Codes (wird nur für Android compiliert)
             IWindowManager windowManager = Android.App.Application.Context.GetSystemService(Context.WindowService).JavaCast<IWindowManager>();
             SurfaceOrientation orientation = windowManager.DefaultDisplay.Rotation;
             bool isLandscape = orientation == SurfaceOrientation.Rotation90 || orientation == SurfaceOrientation.Rotation270;

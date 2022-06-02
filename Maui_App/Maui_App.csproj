@@ -50,9 +50,18 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\add.png" />
+	  <None Remove="Resources\Images\ppedv.bmp" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="M11_Loc\Strings.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>Strings.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="M11_Gestures.xaml.cs">
+	    <DependentUpon>M11_Gestures.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="M07_Bindings.xaml.cs">
 	    <DependentUpon>M07_Bindings.xaml</DependentUpon>
 	  </Compile>
@@ -68,10 +77,35 @@
 	  <Compile Update="M06_Resources_Styles.xaml.cs">
 	    <DependentUpon>M06_Resources_Styles.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="M11_McSubscriberPage.xaml.cs">
+	    <DependentUpon>M11_McSubscriberPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Platforms\iOS\DeviceOrientationService.cs">
+	    <ExcludeFromCurrentConfiguration>false</ExcludeFromCurrentConfiguration>
+	  </Compile>
+	  <Compile Update="Platforms\MacCatalyst\DeviceOrientationService.cs">
+	    <ExcludeFromCurrentConfiguration>false</ExcludeFromCurrentConfiguration>
+	  </Compile>
+	  <Compile Update="Platforms\Tizen\DeviceOrientationService.cs">
+	    <ExcludeFromCurrentConfiguration>false</ExcludeFromCurrentConfiguration>
+	  </Compile>
+	  <Compile Update="M09_Plattformspezifika.xaml.cs">
+	    <DependentUpon>M09_Plattformspezifika.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Gestures.xaml">
+	  <EmbeddedResource Update="M11_Loc\Strings.en-US.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="M11_Loc\Strings.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="M11_Gestures.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="M07_Bindings.xaml">
@@ -83,25 +117,28 @@
 	  <MauiXaml Update="M05_Layouts.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="MVVM\View\BeispielView.xaml">
+	  <MauiXaml Update="M11_McSubscriberPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Navi\AppShell.xaml">
+	  <MauiXaml Update="M10_MVVM\View\BeispielView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Navi\FlyoutBsp\FlyoutBsp.xaml">
+	  <MauiXaml Update="M08_Navi\AppShell.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Navi\FlyoutBsp\FlyoutPage1.xaml">
+	  <MauiXaml Update="M08_Navi\FlyoutBsp\FlyoutBsp.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Navi\NavPageBsp.xaml">
+	  <MauiXaml Update="M08_Navi\FlyoutBsp\FlyoutPage1.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Navi\TabbedPageBsp.xaml">
+	  <MauiXaml Update="M08_Navi\NavPageBsp.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Plattformspezifika.xaml">
+	  <MauiXaml Update="M08_Navi\TabbedPageBsp.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="M09_Plattformspezifika.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Resources\Styles\Colors.xaml">
@@ -113,7 +150,7 @@
 	  <MauiXaml Update="M06_Resources_Styles.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="RoutingBsp.xaml">
+	  <MauiXaml Update="M08_Navi\RoutingBsp.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

@@ -7,6 +7,7 @@ public partial class Bindings : ContentPage
         InitializeComponent();
     }
 
+    //EventHandler zur Anzeige des BindingContext-Objekts des StackLayouts
     private async void Btn_Show_Clicked(object sender, EventArgs e)
     {
         Person person = Sly_DataBinding.BindingContext as Person;
@@ -14,6 +15,7 @@ public partial class Bindings : ContentPage
         await DisplayAlert("PERSON", $"{person.Name} {person.Alter}", "ok");
     }
 
+    //EventHandler zur Manipulation des BindingContext-Objekts des StackLayouts
     private void Btn_Altern_Clicked(object sender, EventArgs e)
     {
         Person person = Sly_DataBinding.BindingContext as Person;
@@ -21,12 +23,14 @@ public partial class Bindings : ContentPage
         person.Alter++;
     }
 
+    //EventHandler zum Hinzufügen eines neuen Elements zur von dem ListView verwendeten Liste (vgl. Person.cs)
     private void Btn_Add_Clicked(object sender, EventArgs e)
     {
         Person person = Sly_DataBinding.BindingContext as Person;
         person.WichtigeDaten.Add(new DateTime(1999, 2, 23));
     }
 
+    //EventHandler zum Löschen eines Elements aus der Liste (vgl. Person.cs)
     private void Btn_Delete_Clicked(object sender, EventArgs e)
     {
         if (LstV_Personen.SelectedItem != null)
@@ -40,13 +44,17 @@ public partial class Bindings : ContentPage
 
 }
 
+//Beipiel-Enum
 enum TestEnum { Eins, Zwei, Drei }
 
+//Eigene MarkupExtension zur Übergabe von Enums an ItemControls
+//ContentProperty definiert den in der MarkupExtension übergebenen Wert
 [ContentProperty("Type")]
 public class EnumBindingSourceExtension : IMarkupExtension
 {
     public Type Type { get; set; }
 
+    //ProvideValue gibt den Rückgabewert der MarkupExtension aus
     public object ProvideValue(IServiceProvider serviceProvider)
     {
         if (Type is null || !Type.IsEnum)

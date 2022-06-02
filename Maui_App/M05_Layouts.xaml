@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
+    <!--vgl. CodeBehind-->
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Maui_App.Layouts"
              Title="Layouts">
     <ScrollView>
+        <!--Das Layouting erfolgt über die Auswahl der Layoutcontainer und deren Kombinationen sowie über 
+        Control-Properties wie Vertical/HorizontalOptions, Margin, Padding, Heigth/WidhtRequest-->
         <StackLayout Margin="10">
             <Frame BorderColor="Black" Padding="5">
+                <!--StackLayouts ordnen ihre Children-Elemente gemäß ihrer Orientation-Property unter- oder nebeneinander an.
+                Spacing gibt den Abstand zwischen den einzelnen Elementen an-->
                 <StackLayout HeightRequest="700"
                          Orientation="Vertical"
                          Spacing="20">
@@ -20,11 +25,14 @@
                        VerticalOptions="FillAndExpand"/>
                 </StackLayout>
             </Frame>
-            <Frame BorderColor="Black" Padding="5">
-                
+            
+            <Frame BorderColor="Black" Padding="5">                
                 <Grid HeightRequest="700"
                       ColumnSpacing="10"
                       RowSpacing="10">
+                    <!--In einem Grid können Anzahl der Spalten und Zeilen sowie deren Breite/Höhe definiert werden-->
+                    <!--Breiten- und Höhenangaben der Zeilen/Spalten können aus absolute Werte, Auto (= automatische
+                        Angleichung an den Inhalt) oder * (= Aufteilung des restlichen Platzes) gesetzt werden-->
                     <Grid.RowDefinitions>
                         <RowDefinition Height="100"/>
                         <RowDefinition Height="Auto"/>
@@ -35,33 +43,41 @@
                         <ColumnDefinition Width="100"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    
+
+                    <!--Jedem Element muss eine Row und eine Column zugewiesen werden, in der es angezeigt werden soll.
+                        Mittels RowSpan und ColumnSpan kann ein Element mehrere Zeilen/Spalten umfassen-->
                     <Label Text="1st Label"
                            BackgroundColor="Red"
                            Grid.Column="0"
                            Grid.Row="0"/>
-                    <Label Text="2st Label"
+                    <Label Text="2nd Label"
                        BackgroundColor="Green"
                            Grid.Column="1"
                            Grid.Row="0"/>
-                    <Label Text="3st Label"
+                    <Label Text="3rd Label"
                        BackgroundColor="Yellow"
                            Grid.Column="0"
                            Grid.Row="1"
                            HorizontalOptions="Start"/>
-                    <Label Text="4st Label"
+                    <Label Text="4th Label"
                        BackgroundColor="Blue"
                            Grid.Column="1"
                            Grid.Row="1"/>
                     <Label Text="5th Label"
-                       BackgroundColor="Orange"
+                           BackgroundColor="Orange"
                            Grid.Column="0"
                            Grid.Row="2"
                            Grid.ColumnSpan="2"
-                           HorizontalOptions="Center"/>
+                           HorizontalOptions="Center"
+                           x:Name="Lbl_Grid5"/>
                 </Grid>
             </Frame>
+            
             <Frame BorderColor="Black" Padding="5">
+                <!--In einem AbsoluteLayout ist jedem Element eine absolute Position zugeordnet-->
+                <!--Diese wird durch die Property LayouBounds defniert. Die vier Zahlen repräsentieren X-Position, Y-Position, Breite, Höhe-->
+                <!--Die Property LayoutFlags definiert, welche der vier Zahlen in relativen Werten angegeben sind, anstatt in standartmäßigen
+                absoluten Werten-->
                 <AbsoluteLayout HeightRequest="700">
                     <Label Text="1st Label"
                        BackgroundColor="Red"
@@ -79,7 +95,11 @@
                        BackgroundColor="Blue"/>
                 </AbsoluteLayout>
             </Frame>
+            
             <Frame BorderColor="Black" Padding="5">
+                <!--Das FlexLAyout ist ein hochfelxibeler Container mit einer Vielzahl an Einstellungsmöglichkeiten
+                zur Ausrichtung und zum Verhalten der Inhalte. Diese erfolgen z.T. über Eigenschaften des Containers
+                und z.T. über AttachedProperties-->
                 <FlexLayout HeightRequest="739"
                             Direction="Row"
                             Wrap="Wrap"
